@@ -1,0 +1,61 @@
+.RegisteredModal .btn-close {
+  padding: 0;
+  opacity: 1;
+  width: 2em;
+  height: 2em;
+  background: none;
+  position: absolute;
+  right: -5px;
+  top: -7px;
+  z-index: 1;
+}
+.RegisteredModal .btn-close:focus {
+  outline: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+.RegisteredModal h2 {
+  color: #000000;
+  font-weight: 600;
+  font-size: 29px;
+  position: relative;
+  margin-bottom: 45px;
+}
+.RegisteredModal h2::after {
+  content: "";
+  display: inline-block;
+  width: 150px;
+  height: 4px;
+  background-color: #3feee0;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}
+
+.RegisteredModal p {
+  color: #000;
+  font-size: 17px;
+}
+.RegisteredModal a.btn.btn-primary {
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 7px;
+  margin-right: 20px;
+  font-size: 16px;
+  width: max-content;
+  margin-top: 30px;
+  color: #002962;
+  font-weight: 500;
+  border-color: #3feee0;
+  background: linear-gradient(
+    105deg,
+    #3feee0 0%,
+    #3feee0 34%,
+    #3be5f1 72%,
+    #3bd5f1 100%
+  );
+}
+
+.RegisteredModal .btn-primary:active:focus {
+  box-shadow: none;
+}

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8b9f4071.css",
+    "main.js": "/static/js/main.5e4f04c4.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/simple-Line-Icons.svg": "/static/media/simple-Line-Icons.32be9ff205347340800e.svg",
+    "static/media/weathericons-regular-webfont.svg": "/static/media/weathericons-regular-webfont.c3aa7bd3a5200ff8e721.svg",
+    "static/media/registerd_img.png": "/static/media/registerd_img.6f77ef0d229acc441853.png",
+    "static/media/weathericons-regular-webfont.ttf": "/static/media/weathericons-regular-webfont.520c26b13fefaeef5c94.ttf",
+    "static/media/simple-Line-Icons.woff": "/static/media/simple-Line-Icons.d25156c933f09bb78bba.woff",
+    "static/media/weathericons-regular-webfont.woff": "/static/media/weathericons-regular-webfont.e4d2c00ed56824803ce0.woff",
+    "static/media/weathericons-regular-webfont.eot": "/static/media/weathericons-regular-webfont.db8e6bec2adb2a3e2779.eot",
+    "static/media/user-sign.png": "/static/media/user-sign.97336984f1274b98b977.png",
+    "static/media/simple-Line-Icons.eot": "/static/media/simple-Line-Icons.37c20767490388888f44.eot",
+    "static/media/simple-Line-Icons.ttf": "/static/media/simple-Line-Icons.549254fc1514a6148dbf.ttf",
+    "static/media/user.png": "/static/media/user.ce8ac6aa15a5c0276fee.png",
+    "index.html": "/index.html",
+    "main.8b9f4071.css.map": "/static/css/main.8b9f4071.css.map",
+    "main.5e4f04c4.js.map": "/static/js/main.5e4f04c4.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b9f4071.css",
+    "static/js/main.5e4f04c4.js"
+  ]
+}
