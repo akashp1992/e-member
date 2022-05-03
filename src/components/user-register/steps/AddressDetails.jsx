@@ -167,11 +167,11 @@ export default function AddressDetails() {
       } else if (showMods) {
         console.log(showMods)
         toast.error(showMods);
-      } 
+      }
     }
   };
 
-  const clearData=()=>{
+  const clearData = () => {
     setAddress("");
     setCity("");
     setPostCode("");
@@ -376,11 +376,11 @@ export default function AddressDetails() {
                 onClick={handleSubmit}
               >
                 {isLoading && (
-            <i
-              className="fa fa-refresh fa-spin"
-              style={{ marginRight: "5px" }}
-            />
-          )}
+                  <i
+                    className="fa fa-refresh fa-spin"
+                    style={{ marginRight: "5px" }}
+                  />
+                )}
                 {group || business
                   ? "Proceed To Next Step"
                   : "Activate Account"}

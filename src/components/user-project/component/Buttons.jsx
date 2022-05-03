@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import "../css/main.css";
 import { useDispatch } from "react-redux";
 import { CreateNewProject } from "../../../redux/action/user.action";
+import validation from './CustomHook/Validations'
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const BASE_TOKEN = process.env.REACT_APP_BASE_TOKEN;
+
 
 const Buttons = () => {
   const [Inputs, setInputs] = useState({
@@ -20,6 +22,8 @@ const Buttons = () => {
     AddImages: "",
     AddDocument: "",
   });
+
+  const [errors, setErrors] = useState({});
 
   // const navigate = useNavigate();
 
@@ -39,10 +43,20 @@ const Buttons = () => {
 
   const HandleInputs = (e) => {
     var { name, value } = e.target;
-
     setInputs({ ...Inputs, [name]: value });
+    setErrors(validation(Inputs));
+    setDataIsCorrect(true);
   };
 
+
+  const [dataIsCorrect, setDataIsCorrect] = useState(false);
+
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && dataIsCorrect) {
+      setDataIsCorrect(false)
+    }
+  }, [errors])
   const token = localStorage.getItem("currentUser");
   const { token_type, email, access_token } = JSON.parse(token);
 
@@ -65,6 +79,7 @@ const Buttons = () => {
       role: 0,
       status: 0,
     });
+
 
     var requestOptions = {
       method: "POST",
@@ -219,8 +234,9 @@ const Buttons = () => {
                 data-toggle="modal"
                 data-dismiss="modal"
               >
-                Next{" "}
+                Next {""}
               </a>
+
             </div>
           </div>
         </div>
@@ -318,6 +334,7 @@ const Buttons = () => {
                   <div className="form-group">
                     <label>Project Name:</label>
                     <input
+                      required
                       type="text"
                       name="ProjectName"
                       className="form-control"
@@ -325,6 +342,7 @@ const Buttons = () => {
                       value={Inputs.ProjectName}
                       onChange={HandleInputs}
                     />
+                    {errors.ProjectName && <div style={{ color: 'red' }}>{errors.ProjectName}</div>}
                   </div>
                 </div>
                 <div className="col-6">
@@ -338,6 +356,7 @@ const Buttons = () => {
                       value={Inputs.Location}
                       onChange={HandleInputs}
                     />
+                    {errors.Location && <span style={{ color: 'red' }}>{errors.Location}</span>}
                   </div>
                 </div>
                 <div className="col-12 m-b-10">
@@ -347,18 +366,19 @@ const Buttons = () => {
                     data-provide="datepicker"
                   >
                     <input
-                      type="text"
+                      type="date"
                       className="form-control"
                       //  name="start"
                       name="ProjectDate"
                       placeholder="Start Date"
                       value={Inputs.ProjectDate}
                       onChange={HandleInputs}
-                    />
-
+                    /><br/>
+                    
                     <span className="input-group-addon"> </span>
+                   
                     <input
-                      type="text"
+                      type="date"
                       className="form-control"
                       //  name="end"
                       name="ProjectEndDate"
@@ -366,7 +386,10 @@ const Buttons = () => {
                       value={Inputs.ProjectEndDate}
                       onChange={HandleInputs}
                     />
+                    <br/>
+                    {errors.ProjectDate && <span style={{ color: 'red' }}>{errors.ProjectDate}</span>}
                   </div>
+                  {errors.ProjectEndDate && <span style={{ color: 'red' }}>{errors.ProjectEndDate}</span>}
                 </div>
                 <div className="col-6">
                   <label>Join As:</label>
@@ -378,6 +401,7 @@ const Buttons = () => {
                     value={Inputs.JoinAs}
                     onChange={HandleInputs}
                   />
+                   {errors.JoinAs && <span style={{ color: 'red' }}>{errors.JoinAs}</span>}
                 </div>
                 <div className="col-6">
                   <label>Choose Type of Giving:</label>
@@ -411,14 +435,22 @@ const Buttons = () => {
               </div>
             </div>
             <div className="modal-footer">
-              <a
-                href="#GeneralDetailsoptional-Modal"
-                className=" btn btn-primary"
-                data-toggle="modal"
-                data-dismiss="modal"
-              >
-                Next{" "}
-              </a>
+              {
+                !dataIsCorrect ? <button
+                  data-target="#GeneralDetailsoptional-Modal"
+                  className=" btn btn-primary"
+                  data-toggle="modal"
+                  data-dismiss="modal"
+                >Next</button>
+                  : <button
+                    data-target="#GeneralDetailsoptional-Modal"
+                    className=" btn btn-primary"
+                    data-toggle="modal"
+                    data-dismiss="modal"
+                    disabled
+                  >Next</button>
+              }
+
             </div>
           </div>
         </div>
