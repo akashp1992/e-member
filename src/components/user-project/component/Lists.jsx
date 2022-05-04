@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/main.css";
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Lists = () => {
   const [project, setProject] = useState();
 
-  const token = localStorage.getItem("currentUser")
-  const {token_type, email, access_token} = JSON.parse(token);
-
+  const token = localStorage.getItem("currentUser");
+  console.log("token", token);
+  const { token_type, email, access_token } = JSON.parse(token);
+  console.log("accesstoken", access_token);
   useEffect(() => {
     var config = {
       method: "get",
-      url: BASE_URL+"prodcuts",
+      url: BASE_URL + "prodcuts",
       headers: {
-        'Authorization': [token_type,access_token].join(' '),
+        Authorization: [token_type, access_token].join(" "),
       },
     };
 
@@ -28,8 +29,8 @@ const Lists = () => {
         console.log(error);
       });
     // }, 5000);
-      // return () => clearInterval(req);
-  }, [project]);
+    // return () => clearInterval(req);
+  }, [access_token,project, token_type]);
   return (
     <div className="col-lg-12">
       <div className="card">

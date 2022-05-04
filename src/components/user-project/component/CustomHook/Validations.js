@@ -10,7 +10,10 @@ export default function validate(values) {
         errors.ProjectEndDate = "ProjectEndDate is Required"
     } if (!values.JoinAs) {
         errors.JoinAs = "Join As is Required"
+    } if (values.ChoseType === "Select Team") {
+        errors.ChoseType = "Select Team Type"
+    } if (!values.TargetAmount) {
+        errors.TargetAmount = "Target Amount is Required"
     }
-
     return errors;
 };

@@ -8,9 +8,13 @@ import ProjectRepot from "./components/ProjectRepot";
 import LatestProject from "./components/LatestProject";
 import MyProject from "./components/MyProject";
 import ExpensesDetails from "./components/ExpensesDetails";
-
 const Dashboard = () => {
-  return (
+  const [show, setShow] = useState(false);
+  const handleSidebar = () => {
+    setShow(!show);
+  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  return currentUser ? (
     <>
       <body className="theme-cyan">
         <div
@@ -26,7 +30,11 @@ const Dashboard = () => {
             </div>
           </nav>
 
-          <div id="left-sidebar" className="sidebar mini-sidebar">
+          <div
+            id="left-sidebar"
+            onClick={handleSidebar}
+            className={show ? "sidebar mini-sidebar" : null}
+          >
             <div className="sidebar-scroll">
               <SideNav />
             </div>
@@ -67,6 +75,8 @@ const Dashboard = () => {
         </div>
       </body>
     </>
+  ) : (
+    (window.location.pathname = "/login")
   );
 };
 

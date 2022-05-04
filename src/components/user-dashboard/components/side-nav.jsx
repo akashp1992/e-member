@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/main.css";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import user from "../../../assets/images/user.png";
 import overview_icon from "../../../assets/images/overview-icon.png";
@@ -15,8 +15,8 @@ export default function SideNav() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem("currentUser")
-  const {token_type, email, access_token} = JSON.parse(token);
+  const token = localStorage.getItem("currentUser");
+  const { token_type, email, access_token } = JSON.parse(token);
 
   const [overview, setOverview] = useState(true);
   const [projects, setProjects] = useState(false);
@@ -40,11 +40,11 @@ export default function SideNav() {
         <img
           src={user}
           className="rounded-circle user-photo"
-          alt="User Profile Picture"
+          alt="User Profile "
         />
         <div className="dropdown">
           <a
-            href="javascript:void(0);"
+            href="#/"
             className="dropdown-toggle user-name"
             data-toggle="dropdown"
           >
@@ -63,7 +63,7 @@ export default function SideNav() {
               </a>
             </li>
             <li>
-              <a href="javascript:void(0);">
+              <a href="#/">
                 <i className="icon-settings"></i>Settings
               </a>
             </li>
@@ -75,7 +75,7 @@ export default function SideNav() {
                   <div className="sidenav-footer-title">Valerie Luna</div>
                 </div>
               </div>
-              <a href="javascript:void()" onClick={logout}>
+              <a href="#/" onClick={logout}>
                 <i className="icon-power"></i>Logout
               </a>
             </li>
@@ -126,10 +126,10 @@ export default function SideNav() {
                 <img src={wallet_icon} alt="Wallet-icon" /> <span>Wallet</span>
               </NavLink>
             </li>
-            <li className="sidenav-footer">
-              <a href="#" onClick={logout}>
+            <li className="mt-5">
+              <Link to="/" onClick={logout}>
                 <img src={log_icon} alt="Log-icon" /> <span>Log Out</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

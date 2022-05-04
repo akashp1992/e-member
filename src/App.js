@@ -23,7 +23,7 @@ import Project from "./components/user-project/Project";
 function App() {
   return (
     <>
-      
+
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" exact element={<HomeScreen />} />

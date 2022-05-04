@@ -6,7 +6,6 @@ import logo from "../assets/images/logo.png";
 
 export default function Navbar() {
   const dispatch = useDispatch();
-
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   return (
@@ -65,13 +64,10 @@ export default function Navbar() {
                   </Link>
                 </li>
 
-                <li
-                  className="dropdown-item"
-                  onClick={() => {
-                    dispatch(logoutUser());
-                  }}
-                >
-                  Logout <i className="fas fa-sign-out-alt"></i>
+                <li>
+                   <Link className="getstarted scrollto nav-link" to="/" onClick={()=>dispatch(logoutUser())}>
+                    <img src={user} alt="" className="img-fluid" /> Logout
+                  </Link>
                 </li>
               </>
             ) : (

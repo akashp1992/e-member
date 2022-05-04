@@ -28,6 +28,7 @@ export const loginUser = (user) => (dispatch) => {
       dispatch({ type: "USER_LOGIN_SUCCESS" });
       console.log(res)
       localStorage.setItem("currentUser", JSON.stringify(res.data));
+      window.location.reload();
       // window.location.href = "/";
     })
     .catch((err) => {
@@ -44,7 +45,7 @@ export const logoutUser = () => (dispatch) => {
   localStorage.removeItem("cartItems");
 
   dispatch({ type: "USER_LOGOUT" });
-
+  window.location.pathname = "/";
   // window.location.href = "/login";
 };
 
@@ -176,6 +177,7 @@ export const getAllProjects = () => (dispatch) => {
     .get("/list/")
     .then((res) => {
       dispatch({ type: "GET_ALLPROJECTS_SUCCESS", payload: res.data });
+      window.location.reload();
     })
     .catch((err) => {
       dispatch({ type: "GET_ALLPROJECTS_FAILED", payload: err });

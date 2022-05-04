@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/main.css";
 
 export default function ProjectRepot() {
+  let script = document.getElementById("pie-chart");
+  
   return (
     <div className="card">
       <div className="header">

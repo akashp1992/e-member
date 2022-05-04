@@ -16,12 +16,11 @@ const SideNav = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
-    navigate("/");
     dispatch(logoutUser());
   };
 
-  const token = localStorage.getItem("currentUser")
-  const {token_type, email, access_token} = JSON.parse(token);
+  const token = localStorage.getItem("currentUser");
+  const { token_type, email, access_token } = JSON.parse(token);
 
   return (
     <>
@@ -115,10 +114,10 @@ const SideNav = () => {
                 <img src={wallet_icon} alt="Wallet-icon" /> <span>Wallet</span>
               </NavLink>
             </li>
-            <li className="sidenav-footer">
-              <a href="#" onClick={logout}>
+            <li className="mt-5">
+              <NavLink to="#" onClick={logout}>
                 <img src={log_icon} alt="Log-icon" /> <span>Log Out</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>
